@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">PhoneIntercepter</string>
+    <string name="cdma">中国电信</string>
+    <string name="cmcc">中国移动</string>
+    <string name="wcdma">中国联通</string>
+
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">启动中，骚等...</string>
+    <string name="black_list">查看拦截电话</string>
+
+    <string-array name="card_selection">
+        <item>%s屏蔽陌生人</item>
+        <item>%s不屏蔽陌生人</item>
+    </string-array>
+</resources>
