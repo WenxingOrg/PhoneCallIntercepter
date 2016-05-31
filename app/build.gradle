@@ -1,5 +1,8 @@
 apply plugin: 'com.android.application'
 
+
+def appName = '来电拦截'
+
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.3"
@@ -13,8 +16,16 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            resValue 'string', 'appName', appName
+        }
+
+        debug {
+            minifyEnabled true
+            debuggable true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            resValue 'string', 'appName', appName
         }
     }
 

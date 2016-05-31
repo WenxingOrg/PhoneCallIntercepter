@@ -59,6 +59,7 @@ public class SettingsFragment extends PreferenceFragment {
         for (int i = 0; i < INTERCEPTER_1.size(); i++) {
             if (card1.equals(INTERCEPTER_1.get(i))) {
                 intercepter_1.setValueIndex(i);
+                break;
             } else {
                 intercepter_1.setValueIndex(1);
             }
@@ -94,6 +95,7 @@ public class SettingsFragment extends PreferenceFragment {
         for (int i = 0; i < INTERCEPTER_2.size(); i++) {
             if (card2.equals(INTERCEPTER_2.get(i))) {
                 intercepter_2.setValueIndex(i);
+                break;
             } else {
                 intercepter_2.setValueIndex(1);
 
