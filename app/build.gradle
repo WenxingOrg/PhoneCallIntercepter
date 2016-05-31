@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 
+
 def appName = '来电拦截'
 
 android {
