@@ -1,4 +1,4 @@
-package wzhao1.phoneintercepter;
+package wzhao1.phoneintercepter.receiver;
 
 import android.app.ActivityManager;
 import android.content.BroadcastReceiver;

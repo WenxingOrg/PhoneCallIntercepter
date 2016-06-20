@@ -5,10 +5,11 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 
-import wzhao1.phoneintercepter.CallReceiver;
-import wzhao1.phoneintercepter.TimeTickReceiver;
+import wzhao1.phoneintercepter.receiver.CallReceiver;
+import wzhao1.phoneintercepter.receiver.TimeTickReceiver;
 
 /**
  * Created by wzhao1 on 16/6/20.
@@ -38,7 +39,7 @@ public class BindReceiverService extends Service {
         receiver = new TimeTickReceiver();
         registerReceiver(receiver, filter);
 
-        filter1 = new IntentFilter(Intent.ACTION_TIME_TICK);
+        filter1 = new IntentFilter(TelephonyManager.ACTION_PHONE_STATE_CHANGED);
         filter1.setPriority(2000);
         receiver1 = new CallReceiver();
         registerReceiver(receiver1, filter1);
