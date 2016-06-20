@@ -1,7 +1,9 @@
 package wzhao1.phoneintercepter.fragment;
 
 import android.annotation.TargetApi;
+import android.app.ActivityManager;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.ListPreference;
@@ -16,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import wzhao1.phoneintercepter.R;
+import wzhao1.phoneintercepter.service.BindReceiverService;
 import wzhao1.phoneintercepter.util.PreferenceUtil;
 
 /**
@@ -111,9 +114,30 @@ public class SettingsFragment extends PreferenceFragment {
                 return true;
             }
         });
+
+        //start service once start the app.
+        boolean isServiceRunning = false;
+        ActivityManager manager = (ActivityManager) getActivity().getSystemService(Context.ACTIVITY_SERVICE);
+        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
+            if ("wzhao1.phoneintercepter.service.BindReceiverService".equals(service.service.getClassName())) {
+                isServiceRunning = true;
+            }
+        }
+        if (!isServiceRunning) {
+            Log.i(TAG, "Restart the service");
+            Intent i = new Intent(getActivity(), BindReceiverService.class);
+            getActivity().startService(i);
+        }
     }
-    
-//    private Object subManagerMethod(String method, Object... vars) {
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        getActivity().stopService(new Intent(getActivity(), BindReceiverService.class));
+
+    }
+
+    //    private Object subManagerMethod(String method, Object... vars) {
 //        Object subManagerMethod = null;
 //        try {
 //            SubscriptionManager subscriptionManager = (SubscriptionManager) getActivity().getSystemService(Context.TELEPHONY_SUBSCRIPTION_SERVICE);
