@@ -24,7 +24,7 @@ public class TimeTickReceiver extends BroadcastReceiver {
             //检查Service状态
             ActivityManager manager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
             for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
-                Log.e(TAG, service.service.getClassName());
+//                Log.e(TAG, service.service.getClassName());
                 if ("wzhao1.phoneintercepter.service.BindReceiverService".equals(service.service.getClassName())) {
                     isServiceRunning = true;
                 }
