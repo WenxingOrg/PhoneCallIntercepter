@@ -15,3 +15,28 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+-optimizationpasses 5
+-dontusemixedcaseclassnames
+-dontskipnonpubliclibraryclasses
+-dontpreverify
+-verbose
+-optimizations !code/simplification/arithmetic,!field/*,!class/merging/*
+-ignorewarnings
+-renamesourcefileattribute SourceFile
+-keepattributes SourceFile,LineNumberTable,*Annotation*,Signature
+
+-dontwarn android.support.v4.**
+
+-keep public class * extends android.app.Activity
+-keep public class * extends android.app.Application
+-keep public class * extends android.app.Service
+-keep public class * extends android.app.Fragment
+-keep public class * extends android.support.v4.app.Fragment
+-keep public class * extends android.content.BroadcastReceiver
+-keep public class * extends android.content.ContentProvider
+-keep class * implements android.os.IInterface {*;}
+-keep class android.support.v4.** {*;}
+-keep class android.support.annotation.** {*;}
+-keep class android.support.v7.** {*;}
+-keep public class * extends android.support.v4.**
+-keep public class * extends android.support.v7.**

@@ -5,6 +5,19 @@ android {
     compileSdkVersion 23
     buildToolsVersion "23.0.3"
 
+    lintOptions {
+        abortOnError false
+    }
+
+    signingConfigs {
+        release {
+            storeFile file("cert/accenture.keystore")
+            storePassword "Zwx1990"
+            keyAlias "android"
+            keyPassword "Zwx1990"
+        }
+    }
+
     defaultConfig {
         applicationId "com.phone.wzhao1.phoneintercepter"
         minSdkVersion 20
@@ -16,6 +29,7 @@ android {
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
             resValue 'string', 'appName', appName
         }
 
